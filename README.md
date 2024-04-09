@@ -22,7 +22,7 @@ The image preprocessing steps are as follows:
 11. Extracting regions of interest (ROIs) from the ellipses.
 
 
-## Dataset Organization: ###### AJOUTé
+## Dataset Organization: 
 
 1. Data Cleaning: Unnecessary or missing data in the dataset has been removed.
 2. Data Transformation: Data types or formats have been transformed. Euro and cent values have been concatenated to form comma-separated numbers. 
@@ -31,7 +31,7 @@ The image preprocessing steps are as follows:
 
 ## Coin Detection
 
-### Method 1: Feature Matching ######AJOUTE 
+### Method 1: Feature Matching 
 Feature matching entails the following steps:
 
 1. **Constructing a Vocabulary using SIFT Descriptors:** The first step involves identifying unique features in both images and creating a list of "words" using SIFT descriptors. SIFT descriptors are vectors that describe features.
@@ -42,7 +42,7 @@ Feature matching entails the following steps:
 
 4. **Estimating Homography using RANSAC:** Finally, RANSAC (Random Sample Consensus) is employed to estimate the homography between the matched feature points. RANSAC is a robust algorithm used to estimate parameters of a mathematical model from a set of observed data points.
 
-### Method 2: CNN Classification ####AJOUTEEE
+### Method 2: CNN Classification 
 Coin detection involves the following steps:
 
 1. **Loading the CNN Model:** The pre-trained Convolutional Neural Network (CNN) model for coin detection is loaded.
@@ -63,7 +63,7 @@ Coin detection involves:
 - Classifying ROIs using CNN for coin detection.
 
 
-## Model Training ###AJOUTE
+## Model Training 
 
 The model training process is implemented in a Jupyter Notebook named `cnn_coin_classifier.ipynb`. This notebook contains code for loading the dataset, preprocessing the images, training the model, and evaluating its performance.
 
@@ -99,7 +99,7 @@ Architecture:
 - Dense layer with the number of classes and softmax activation.
 Since the dataset is small, we use data augmentation to generate more training samples. The model is trained using the Adam optimizer and categorical crossentropy loss function.
 
-##Evaluation ####AJOUTEE
+##Evaluation 
 The evaluation process includes several steps aimed at assessing the performance of both CNN and feature matching techniques:
 
 1. Prediction on Test Images: 
