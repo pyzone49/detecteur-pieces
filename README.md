@@ -51,14 +51,14 @@ Coin detection involves the following steps:
 
 
 ### Method 1: Feature Matching
-Feature matching involves:
+**Feature matching involves:**
 - Build vocabulary using SIFT descriptors.
 - Match descriptors using FLANN matcher.
 - Filter matches using Lowe's ratio test.
 - Estimate homography using RANSAC.
 
 ### Method 2: CNN Classification
-Coin detection involves:
+**Coin detection involves:**
 - Load the CNN model.
 - Classifying ROIs using CNN for coin detection.
 
@@ -99,32 +99,26 @@ Architecture:
 - Dense layer with the number of classes and softmax activation.
 Since the dataset is small, we use data augmentation to generate more training samples. The model is trained using the Adam optimizer and categorical crossentropy loss function.
 
-##Evaluation 
+## Evaluation 
 The evaluation process includes several steps aimed at assessing the performance of both CNN and feature matching techniques:
 
-1. Prediction on Test Images: 
+**1. Prediction on Test Images:**
 - Use the trained CNN model to predict the coin classes for the test images.
  - Applying feature matching techniques to detect coins in the test images.
 
-2. Calculation of Accuracy for Detected Coins:
+**2. Calculation of Accuracy for Detected Coins:**
  - Compare the estimated coin classes obtained from the CNN model with ground truth labels to calculate accuracy.
  - Evaluating the accuracy of coins detected using feature matching against manually annotated ground truth information.
 
-3. Mean Absolute Error (MAE) Calculation for Total Coin Value:
+**3. Mean Absolute Error (MAE) Calculation for Total Coin Value:**
  - Calculate the total value of coins detected using both CNN and feature matching techniques.
  - Calculate the absolute difference between the predicted total value and the ground truth total value for each image
  - Averaging these absolute differences across all test images to obtain the MAE.
 
-4. Performance Metrics Analysis:
+**4. Performance Metrics Analysis:**
  - Analyse the accuracy and MAE results to evaluate the effectiveness of both techniques.
  - Identify the strengths or weaknesses of each method based on performance metrics
 
-## Evaluation
-The evaluation process includes:
-- Predicting on test images using both CNN and feature matching techniques.
-- Calculating accuracy for the number of detected coins.
-- Computing the mean absolute error for the total value of the detected coins.
-- Analyzing the results and generating performance metrics.
 
 ## Requirements
 
