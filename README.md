@@ -50,18 +50,6 @@ Coin detection involves the following steps:
 2. **Classifying Regions of Interest (ROIs) using CNN:** Regions of interest (ROIs), identified from the images, are passed through the CNN model to classify and detect coins accurately.
 
 
-### Method 1: Feature Matching
-**Feature matching involves:**
-- Build vocabulary using SIFT descriptors.
-- Match descriptors using FLANN matcher.
-- Filter matches using Lowe's ratio test.
-- Estimate homography using RANSAC.
-
-### Method 2: CNN Classification
-**Coin detection involves:**
-- Load the CNN model.
-- Classifying ROIs using CNN for coin detection.
-
 
 ## Model Training 
 
@@ -82,22 +70,6 @@ The CNN model architecture used for coin classification is as follows:
 
 Since the dataset is small, data augmentation techniques are applied to generate more training samples. The model is trained using the Adam optimizer and categorical crossentropy loss function.
 
-## Model Training
-
-The model training process is implemented in a Jupyter Notebook named `cnn_coin_classifier.ipynb`. This notebook contains code for loading the dataset, preprocessing the images, training the model, and evaluating its performance.
-Using a CNN model with the following architecture:
-Architecture:
-- Convolutional layer with 32 filters, kernel size (3, 3), and ReLU activation.
-- Max pooling layer with pool size (2, 2).
-- Convolutional layer with 64 filters, kernel size (3, 3), and ReLU activation.
-- Max pooling layer with pool size (2, 2).
-- Convolutional layer with 128 filters, kernel size (3, 3), and ReLU activation.
-- Max pooling layer with pool size (2, 2).
-- Flatten layer.
-- Dense layer with 128 units and ReLU activation.
-- Dropout layer with a dropout rate of 0.5.
-- Dense layer with the number of classes and softmax activation.
-Since the dataset is small, we use data augmentation to generate more training samples. The model is trained using the Adam optimizer and categorical crossentropy loss function.
 
 ## Evaluation 
 The evaluation process includes several steps aimed at assessing the performance of both CNN and feature matching techniques:
