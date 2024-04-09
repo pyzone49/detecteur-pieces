@@ -6,36 +6,20 @@ This repository contains code for analyzing images of coins to detect and classi
 
 The image dataset used for training and testing the models can be found in the following Google Drive link: [Coin Image Dataset](https://drive.google.com/drive/folders/1gaUQiRAkI55kTb-vYtrsZdYuzPLKVYel)
 
-## Model Training
-
-The model training process is implemented in a Jupyter Notebook named `cnn_coin_classifier.ipynb`. This notebook contains code for loading the dataset, preprocessing the images, training the model, and evaluating its performance.
-Using a CNN model with the following architecture:
-    layers.Conv2D(32, (3, 3), activation='relu', input_shape=input_shape),
-    layers.MaxPooling2D((2, 2)),
-    layers.Conv2D(64, (3, 3), activation='relu'),
-    layers.MaxPooling2D((2, 2)),
-    layers.Conv2D(128, (3, 3), activation='relu'),
-    layers.MaxPooling2D((2, 2)),
-    layers.Flatten(),
-    layers.Dense(128, activation='relu'),
-    layers.Dropout(0.5),
-    layers.Dense(num_classes, activation='softmax')
-Since the dataset is small, we use data augmentation to generate more training samples. The model is trained using the Adam optimizer and categorical crossentropy loss function.
-
 ## Image Preprocessing
 
 The image preprocessing steps are as follows:
 1. Reading the images dataset.
-2. Applying various preprocessing techniques such as converting to grayscale, Gaussian blur, adaptive histogram equalization, binarization, morphological opening and closing, and edge detection using Canny.
-
-## Feature Extraction
-
-Feature extraction techniques used include:
-- Harris-Laplace keypoints detection.
-- Ellipse fitting to contours.
-- Filtering ellipses based on size, shape, and intersection over union.
-- Extracting regions of interest (ROIs) from ellipses.
-- Extracting features from ROIs using Convolutional Neural Networks (CNN).
+2. Remove Glare from the images.
+3. Gaussian blurring to reduce noise.
+4. Adaptive histogram equalization to enhance contrast.
+5. Binarization to separate the coins from the background.
+6. Morphological operations to remove noise and fill gaps.
+7. Contour detection to find the coins in the image using the Canny edge detector.
+8. Ellipse fitting to the contours to approximate the coins' shapes.
+9. Filtering ellipses based on size, shape, and intersection over union.
+10. Remove overlapping ellipses by keeping the largest one.
+11. Extracting regions of interest (ROIs) from the ellipses.
 
 ## Coin Detection
 
@@ -51,6 +35,22 @@ Coin detection involves:
 - Load the CNN model.
 - Classifying ROIs using CNN for coin detection.
 
+## Model Training
+
+The model training process is implemented in a Jupyter Notebook named `cnn_coin_classifier.ipynb`. This notebook contains code for loading the dataset, preprocessing the images, training the model, and evaluating its performance.
+Using a CNN model with the following architecture:
+Architecture:
+- Convolutional layer with 32 filters, kernel size (3, 3), and ReLU activation.
+- Max pooling layer with pool size (2, 2).
+- Convolutional layer with 64 filters, kernel size (3, 3), and ReLU activation.
+- Max pooling layer with pool size (2, 2).
+- Convolutional layer with 128 filters, kernel size (3, 3), and ReLU activation.
+- Max pooling layer with pool size (2, 2).
+- Flatten layer.
+- Dense layer with 128 units and ReLU activation.
+- Dropout layer with a dropout rate of 0.5.
+- Dense layer with the number of classes and softmax activation.
+Since the dataset is small, we use data augmentation to generate more training samples. The model is trained using the Adam optimizer and categorical crossentropy loss function.
 ## Evaluation
 The evaluation process includes:
 - Predicting on test images using both CNN and feature matching techniques.
