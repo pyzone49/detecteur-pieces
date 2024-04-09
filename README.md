@@ -103,7 +103,13 @@ To run the code in this repository, you need the following dependencies:
 - Pandas
 - Jupyter Notebook
 
+
 You can install the required packages using pip:
 ```bash
 pip install -r requirements.txt
 ```
+
+Authors:
+- Yacine FLICI
+- Fatma Hafsa
+- Mervé Erbas
